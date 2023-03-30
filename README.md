@@ -19,7 +19,8 @@ More or less you will want to run the following script in the `mysql/` directory
 ```bash
 fly volumes create ckreiling_mysql_wp_data --size 10 # gb
 fly secrets set MYSQL_PASSWORD=password MYSQL_ROOT_PASSWORD=password # replace passwords
-flyctl deploy # deploy the app
+flyctl deploy # deploy MySQL
+fly machine update --select --memory 512 # scale memory
 ```
 
 ### WordPress
@@ -27,8 +28,10 @@ flyctl deploy # deploy the app
 Run the following:
 
 ```bash
+fly volumes create ckreiling_wp_data --size 10
 fly secrets set WORDPRESS_DB_PASSWORD=password # replace with non-root password
-flyctly deploy
+flyctly deploy # deploy WordPress
+fly machine update --select --memory 256 # scale memory
 ```
 
 After the rollout you can navigate to e.g. ckreiling-blog-wordpress.fly.dev and

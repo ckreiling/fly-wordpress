@@ -6,14 +6,25 @@ kill_timeout = 5
 processes = []
 
 [build]
-  dockerfile = "Dockerfile"
+  image = "wordpress:6.1.1-apache"
+
+[deploy]
+  strategy = "immediate"
+
+[mounts]
+  source = "ckreiling_wp_data"
+  destination = "/var/www/html"
 
 [env]
   WORDPRESS_DB_HOST = "ckreiling-blog-mysql.internal"
   WORDPRESS_DB_USER = "wp_user"
   WORDPRESS_DB_NAME = "wp_db"
+  # Enable debugging
+  WORDPRESS_DEBUG = "1"
   WORDPRESS_CONFIG_EXTRA = """
-define('WP_SITEURL', 'https://ckreiling-blog-wordpress.fly.dev');"""
+define('WP_SITEURL', 'https://ckreiling-blog-wordpress.fly.dev');
+define('WP_AUTO_UPDATE_CORE', false);
+"""
 
 [[services]]
   http_checks = []
