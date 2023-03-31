@@ -20,9 +20,9 @@ processes = []
   WORDPRESS_DB_USER = "wp_user"
   WORDPRESS_DB_NAME = "wp_db"
   # Enable debugging
-  WORDPRESS_DEBUG = "1"
+  # WORDPRESS_DEBUG = "1"
   WORDPRESS_CONFIG_EXTRA = """
-define('WP_SITEURL', 'https://ckreiling-blog-wordpress.fly.dev');
+define('WP_SITEURL', 'https://ckreiling.dev');
 define('WP_AUTO_UPDATE_CORE', false);
 """
 
