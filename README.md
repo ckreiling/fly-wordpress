@@ -47,11 +47,11 @@ WordPress will walk you through the installation!
 #### Custom Domain
 
 To setup a custom domain with fly is easy. First follow these
-short instructions to setup the custom domain: https://fly.io/blog/how-to-custom-domains-with-fly/
+short instructions to setup DNS and certificates: https://fly.io/blog/how-to-custom-domains-with-fly/
 
 Next navigate to WordPress settings (`wp-admin/options-general.php`) and set the "Site Address" to your
 domain.
 
-You might also want to update the WP_SITEURL setting in
+You should also update the WP_SITEURL setting in
 the `[env]` section of the WordPress `fly.toml` and run
 `fly deploy`.
